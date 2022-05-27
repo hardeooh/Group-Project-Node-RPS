@@ -4,10 +4,10 @@ document.querySelector('#getRocked').addEventListener('click', makeReq)
 async function makeReq(){
   const userPick = document.querySelector("#playGame").value;
   console.log(userPick)
-  const res = await fetch(`/api?choice=${userPick}`)
+  const res = await fetch(`/api`)
   const data = await res.json()
-  calculateWin(userPick,data.result)
-  console.log(data.result);
+  const checkWinner = calculateWin(userPick,data.result)
+  console.log(data.result, userPick, checkWinner)
 }
 
 //Ciru Function to calculate winner

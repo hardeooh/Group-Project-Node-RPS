@@ -24,14 +24,6 @@ const server = http.createServer((req, res) => {
         result: returnComputerChoice()
       }
       res.end(JSON.stringify(computerChoice));
-  } else if(params['student'] != 'leon'){
-      res.writeHead(200, {'Content-Type': 'application/json'});
-      const objToJson = {
-        name: "unknown",
-        status: "unknown",
-        currentOccupation: "unknown"
-        }
-        res.end(JSON.stringify(objToJson));
   } else if (page == '/css/style.css'){
     fs.readFile('css/style.css', function(err, data) {
       res.write(data);
