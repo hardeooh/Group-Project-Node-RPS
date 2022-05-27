@@ -7,6 +7,7 @@ async function makeReq(){
   const res = await fetch(`/api`)
   const data = await res.json()
   const checkWinner = calculateWin(userPick,data.result)
+  renderResults(checkWinner)
   console.log(data.result, userPick, checkWinner)
 }
 
@@ -15,4 +16,8 @@ function calculateWin(userChoice, computerChoice) {
   if ((userChoice === 'rock' && computerChoice === 'scissors') || (userChoice === 'paper' && computerChoice === 'rock') || (userChoice === 'scissors' && computerChoice === 'paper')) return 'You win!';
   else if (userChoice === computerChoice) return "It's a tie!";
   else return "You Lose!";
+}
+
+function renderResults(winner){
+  document.querySelector('#renderResult').textContent = winner
 }
